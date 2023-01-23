@@ -15,10 +15,9 @@ class Frame_(wx.Frame):
     self.List_ = List_(self)
     self.timer = Timer_(self)
     self.Bind(wx.EVT_TIMER, self.redraw, self.timer)
-    self.timer.Start(20)
+    self.timer.Start(int(1000 / 60))
 
-  def redraw(self, event):
-    data[0][0] = data[0][0] + 1
+  def redraw(self, _):
     wx.ListCtrl.Refresh(self.List_)
 
 class List_(wx.ListCtrl):
